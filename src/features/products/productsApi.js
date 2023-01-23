@@ -34,3 +34,5 @@ export const productsApi = rootApi.injectEndpoints({
     })
 
 })
+
+export const { useFetchProductsQuery, useAddProductMutation } = productsApi
