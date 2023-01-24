@@ -1,14 +1,21 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Cart from '../components/Cart'
+import { calculateSubtotal } from '../features/carts/cartsSlice';
 
 const CartPage = () => {
 
-    const { cartsItems } = useSelector((state) => state?.carts);
+    const { cartsItems, cartsTotalAmount } = useSelector((state) => state?.carts);
 
     if (cartsItems?.length > 0) {
         console.log(cartsItems)
     }
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(calculateSubtotal())
+    }, [cartsItems])
 
 
     return (
@@ -61,7 +68,7 @@ const CartPage = () => {
                     <div className="border-t mt-8">
                         <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                             <span>Total cost</span>
-                            <span>$600</span>
+                            <span>${cartsTotalAmount}</span>
                         </div>
                         <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                     </div>
