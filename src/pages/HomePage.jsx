@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { useSelector } from 'react-redux'
 import Product from '../components/Product';
 import { useFetchProductsQuery } from '../features/products/productsApi';
 

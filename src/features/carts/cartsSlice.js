@@ -41,12 +41,16 @@ export const cartsSlice = createSlice({
         },
 
         clearCart: (state, action) => {
+            state.cartsItems = [];
+            localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
 
         },
 
         calculateSubtotal: (state, action) => {
             const subTotal = state.cartsItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
             state.cartsTotalAmount = subTotal;
+
+            localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
         }
 
     },
