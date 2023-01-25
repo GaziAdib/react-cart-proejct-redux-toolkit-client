@@ -51,6 +51,23 @@ export const cartsSlice = createSlice({
             state.cartsTotalAmount = subTotal;
 
             localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+        },
+
+        increaseQty: (state, action) => {
+            const eachCartIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
+
+            state.cartsItems[eachCartIndex].qty += 1
+
+            localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+
+        },
+        decreaseQty: (state, action) => {
+            const eachCartIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
+
+            state.cartsItems[eachCartIndex].qty -= 1
+
+            localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+
         }
 
     },
@@ -59,6 +76,6 @@ export const cartsSlice = createSlice({
 // Action creators are generated for each case reducer function
 // export const { } = cartsSlice.actions
 
-export const { addCart, removeCart, clearCart, calculateSubtotal } = cartsSlice.actions
+export const { addCart, increaseQty, decreaseQty, removeCart, clearCart, calculateSubtotal } = cartsSlice.actions
 
 export default cartsSlice.reducer
