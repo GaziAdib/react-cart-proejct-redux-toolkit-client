@@ -66,6 +66,14 @@ export const cartsSlice = createSlice({
 
             state.cartsItems[eachCartIndex].qty -= 1
 
+            // if qty == 0 then cart remove for this item;
+
+            if (state.cartsItems[eachCartIndex].qty === 0) {
+                const filteredItems = state.cartsItems.filter((item) => item._id !== state.cartsItems[eachCartIndex]._id);
+                state.cartsItems = filteredItems;
+            }
+
+
             localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
 
         }
