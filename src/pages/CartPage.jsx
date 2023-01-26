@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Cart from '../components/Cart'
-import { calculateSubtotal } from '../features/carts/cartsSlice';
+import { calculateSubtotal, clearCart } from '../features/carts/cartsSlice';
 
 const CartPage = () => {
 
@@ -16,6 +16,12 @@ const CartPage = () => {
     useEffect(() => {
         dispatch(calculateSubtotal())
     }, [cartsItems])
+
+    // clear cart handler
+
+    const clearCartHandler = () => {
+        dispatch(clearCart());
+    }
 
 
     return (
@@ -39,6 +45,9 @@ const CartPage = () => {
                             return <Cart key={cart._id} cart={cart} />
                         })
                     }
+
+
+                    <button onClick={clearCartHandler} className="mx-2 my-2 px-2 py-2 bg-rose-600 text-white rounded-full shadow-sm hover:bg-red-800">{cartsItems?.length === 0 ? 'No Items Left' : 'Clear Cart'}</button>
 
 
                     <a href="#" className="flex font-semibold text-indigo-600 text-sm mt-10">
