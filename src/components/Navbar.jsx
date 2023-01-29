@@ -33,7 +33,7 @@ const Navbar = () => {
                 <Link to={'/'}>Home</Link>
                 <Link to={'/addProduct'}>AddProducts</Link>
                 <Link to={'/carts'}>Cart</Link>
-
+                <Link to={'/wishlists'}>WishList</Link>
             </div>
             <div className="flex lg:hidden">
                 <svg

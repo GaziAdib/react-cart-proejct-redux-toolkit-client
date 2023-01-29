@@ -11,6 +11,8 @@ const CartPage = () => {
         console.log(cartsItems)
     }
 
+    console.log('cartTotalAmount', cartsTotalAmount)
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -32,7 +34,7 @@ const CartPage = () => {
                         <h1 className="font-semibold text-2xl">Shopping Cart</h1>
                         <h2 className="font-semibold text-2xl">3 Items</h2>
                     </div>
-                    <div className="flex mt-10 mb-5">
+                    <div className="flex mt-10 mb-5 bg-red-200 px-3 py-3">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
                         <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
@@ -77,7 +79,7 @@ const CartPage = () => {
                     <div className="border-t mt-8">
                         <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                             <span>Total cost</span>
-                            <span>${cartsTotalAmount}</span>
+                            <span>${Number(cartsTotalAmount)}</span>
                         </div>
                         <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                     </div>

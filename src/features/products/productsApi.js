@@ -31,8 +31,12 @@ export const productsApi = rootApi.injectEndpoints({
                 }
             }
         }),
+
+        fetchSingleProduct: builder.query({
+            query: (id) => `/product/${id}`,
+        }),
     })
 
 })
 
-export const { useFetchProductsQuery, useAddProductMutation } = productsApi
+export const { useFetchProductsQuery, useAddProductMutation, useFetchSingleProductQuery } = productsApi

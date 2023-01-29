@@ -15,15 +15,33 @@ export const cartsSlice = createSlice({
 
             // if exists increase qty
 
-            let existsIndex = state.cartsItems.findIndex((item) => item._id === action.payload._id);
+            // let existsIndex = state.cartsItems.findIndex((item) => item._id === action.payload?._id);
+            let eachCartproductIndex = state.cartsItems.findIndex((item) => item?.product?._id === action.payload?.product?._id);
 
-            if (existsIndex >= 0) {
-                state.cartsItems[existsIndex].qty += 1
+            if (eachCartproductIndex >= 0) {
+                state.cartsItems[eachCartproductIndex].qty += 1
             } else {
                 // add to cart 
-                const assembledItem = { ...action.payload, qty: 1 }
-                state.cartsItems.push(assembledItem);
+                // const assembledItem = { ...action.payload, qty: 1 }
+                // state.cartsItems.push(assembledItem);
 
+                // // localstorage add
+
+                // localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+
+                // add to cart 
+                let assembledItem;
+                if (action.payload.qty > 1) {
+                    assembledItem = { ...action.payload, qty: action.payload.qty }
+                    console.log('action payload in detail', action.payload.qty)
+                    state.cartsItems.push(assembledItem);
+                }
+
+                else if (action.payload.qty === 1) {
+                    assembledItem = { ...action.payload, qty: 1 }
+                    console.log('action payload', action.payload)
+                    state.cartsItems.push(assembledItem);
+                }
                 // localstorage add
 
                 localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
@@ -32,7 +50,8 @@ export const cartsSlice = createSlice({
         },
 
         removeCart: (state, action) => {
-            const updatedCartItems = state.cartsItems.filter((item) => item._id !== action.payload._id)
+            console.log('delete action', action.payload)
+            const updatedCartItems = state.cartsItems.filter((item) => item?.product?._id !== action.payload?.product?._id)
 
             state.cartsItems = updatedCartItems;
 
@@ -47,29 +66,46 @@ export const cartsSlice = createSlice({
         },
 
         calculateSubtotal: (state, action) => {
-            const subTotal = state.cartsItems.reduce((acc, item) => acc + (item.price * item.qty), 0);
-            state.cartsTotalAmount = subTotal;
+
+            const subTotal = state.cartsItems.reduce((acc, item) => acc + (item.product?.price * Number(item.qty)), 0);
+            state.cartsTotalAmount = Number(subTotal);
 
             localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
         },
 
         increaseQty: (state, action) => {
-            const eachCartIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
+            console.log('carts', JSON.stringify(state.cartsItems))
+            let eachCartproductIndex = state.cartsItems.findIndex((item) => item?.product?._id === action.payload.cart?.product?._id);
+            console.log('each index', eachCartproductIndex);
 
-            state.cartsItems[eachCartIndex].qty += 1
+            //console.log('each Product Index', eachCartIndex);
 
-            localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+            // console.log('item cartsItem', JSON.stringify(state.cartsItems[eachCartIndex].product))
+
+            // const eachIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
+            if (eachCartproductIndex >= 0) {
+                state.cartsItems[eachCartproductIndex].qty += 1;
+                localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+            }
+
+            // console.log('inc state', action.payload)
+
+
 
         },
         decreaseQty: (state, action) => {
-            const eachCartIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
+            let eachCartproductIndex = state.cartsItems.findIndex((item) => item?.product?._id === action.payload.cart?.product?._id);
+            // const eachCartIndex = state.cartsItems.findIndex((item) => item?._id === action.payload?._id);
 
-            state.cartsItems[eachCartIndex].qty -= 1
+            if (eachCartproductIndex >= 0) {
+                state.cartsItems[eachCartproductIndex].qty -= 1;
+                localStorage.setItem("cartItems", JSON.stringify(state.cartsItems));
+            }
 
             // if qty == 0 then cart remove for this item;
 
-            if (state.cartsItems[eachCartIndex].qty === 0) {
-                const filteredItems = state.cartsItems.filter((item) => item._id !== state.cartsItems[eachCartIndex]._id);
+            if (state.cartsItems[eachCartproductIndex].qty === 0) {
+                const filteredItems = state.cartsItems.filter((item) => item.product?._id !== state.cartsItems[eachCartproductIndex].product?._id);
                 state.cartsItems = filteredItems;
             }
 
