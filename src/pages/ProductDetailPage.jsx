@@ -23,7 +23,6 @@ const ProductDetailPage = () => {
 
     const dispatch = useDispatch();
 
-
     const navigate = useNavigate();
 
     const addToCartHandler = (product) => {

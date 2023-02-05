@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage';
 import Footer from './components/Footer';
 import ProductDetailPage from './pages/ProductDetailPage';
 import WishlistPage from './pages/WishlistPage';
+import ProductHome from './pages/ProductHome';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/test' element={<ProductHome />} />
         <Route path='/addProduct' element={<AddProduct />} />
         <Route path='/carts' element={<CartPage />} />
         <Route path='/wishlists' element={<WishlistPage />} />
