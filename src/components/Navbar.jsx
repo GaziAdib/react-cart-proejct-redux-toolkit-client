@@ -52,7 +52,7 @@ const Navbar = () => {
 
     }
     return (
-        <nav className="items-center shadow-lg flex justify-between px-4 py-4 mx-auto bg-slate-100 dark:bg-gray-900">
+        <nav className="items-center shadow-lg flex justify-between px-4 py-2 mx-auto bg-slate-100 dark:bg-gray-900">
             <div>
                 <Link to='/'>
                     <img

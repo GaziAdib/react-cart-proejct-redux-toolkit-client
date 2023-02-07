@@ -57,7 +57,7 @@ const Product = ({ product }) => {
         //     </div>
         // </div>
 
-        <div className="bg-white text-gray-700 dark:bg-gray-900 items-center w-full md:w-4/5 lg:w-full min-h-[10rem] shadow-lg rounded-md overflow-hidden">
+        <div className="text-gray-700 dark:bg-gray-900 items-center w-full md:w-4/5 lg:w-4/5 min-h-[10rem] shadow-lg rounded-md overflow-hidden">
 
             <img className="w-full h-full object-cover" src={image} alt={title} />
 

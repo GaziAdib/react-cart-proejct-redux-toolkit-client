@@ -32,29 +32,29 @@ const AddProduct = () => {
 
 
     return (
-        <div className="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
+        <div className="bg-white w-full h-screen py-10 px-5 dark:bg-gray-800">
 
-            <div className="text-3xl mb-6 text-center ">
+            <div className="text-3xl my-5 py-3 text-center dark:text-gray-200">
                 Add Products To Your Liking ❤️
             </div>
 
             <form onSubmit={submitHandler}>
                 <div className="grid grid-cols-2 gap-4 max-w-xl m-auto">
 
-                    <div className="col-span-2 lg:col-span-2">
-                        <input type="text" value={image} onChange={(e) => setImage(e.target.value)} className="border-solid border-slate-400 border-2 p-3 md:text-xl w-full rounded-lg" required placeholder="Image URL" />
+                    <div className="col-span-2 lg:col-span-3">
+                        <input type="text" value={image} onChange={(e) => setImage(e.target.value)} className="border-solid border-slate-400 dark:border-purple-600 border-2 px-3 py-3 md:text-xl lg:text-2xl w-full rounded-lg" required placeholder="Product Image URL" />
                     </div>
 
-                    <div className="col-span-2 lg:col-span-2">
-                        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="border-solid border-slate-400 border-2 p-3 md:text-xl w-full rounded-lg" required placeholder="Title" />
+                    <div className="col-span-2 lg:col-span-3">
+                        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="border-solid border-slate-400 dark:border-purple-600 border-2 px-3 py-3 md:text-xl lg:text-2xl w-full rounded-lg" required placeholder="Title" />
                     </div>
 
-                    <div className="col-span-2 lg:col-span-2">
-                        <input type="number" value={price} min={0} onChange={(e) => setPrice(e.target.value)} className="border-solid border-slate-400 border-2 p-3 md:text-xl w-full rounded-lg" required placeholder="Price" />
+                    <div className="col-span-2 lg:col-span-3">
+                        <input type="number" value={price} min={0} onChange={(e) => setPrice(e.target.value)} className="border-solid border-slate-400 dark:border-purple-600 border-2 px-3 py-3 md:text-xl lg:text-2xl w-full rounded-lg" required placeholder="Price" />
                     </div>
 
-                    <div className="col-span-2 lg:col-span-2">
-                        <select value={category} required onChange={(e) => setCategory(e.target.value)} className="border-solid border-green-400 border-2 p-3 md:text-xl w-full rounded-lg">
+                    <div className="col-span-2 lg:col-span-3">
+                        <select value={category} required onChange={(e) => setCategory(e.target.value)} className="border-solid border-green-400 dark:border-purple-600 border-2 px-3 py-3 md:text-xl lg:text-2xl w-full rounded-lg">
                             <option value="smartphones">Smartphone</option>
                             <option value="computer">Computer</option>
                             <option value="tv">Tv</option>
