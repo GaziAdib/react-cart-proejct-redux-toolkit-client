@@ -11,6 +11,14 @@ const CartPage = () => {
         console.log(cartsItems)
     }
 
+    // dark root page
+
+    // const element = document.getElementById('root');
+
+    // useEffect(() => {
+    //     element.classList.add('dark');
+    // }, [element])
+
     console.log('cartTotalAmount', cartsTotalAmount)
 
     const dispatch = useDispatch();
@@ -27,6 +35,7 @@ const CartPage = () => {
 
 
     return (
+
         <div className="container mx-auto mt-10 dark:bg-gray-900">
             <div className="flex shadow-md my-10">
                 <div className="w-3/4 bg-white px-10 py-10 dark:bg-gray-900">
@@ -87,6 +96,8 @@ const CartPage = () => {
 
             </div>
         </div>
+
+
     )
 }
 
