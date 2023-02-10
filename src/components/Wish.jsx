@@ -25,19 +25,19 @@ const Wish = ({ wishlist }) => {
 
     return (
 
-        <Link to={`/product/${_id}`} class="flex flex-col items-center bg-white rounded-lg shadow md:flex-row md:max-w-xl dark:bg-gray-900 ">
+        <div class="flex flex-col items-center bg-white rounded-lg shadow md:flex-row md:max-w-xl dark:bg-gray-900 ">
             <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={image} alt="" />
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h3>
                 <h4 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">$ {price}</h4>
                 <p class="mb-3 font-bold text-gray-700 dark:text-gray-400">{category}</p>
                 <div className='flex flex-row  items-center py-1'>
-                    <span className='text-white bg-rose-600 hover:bg-rose-800 rounded-lg mx-2 px-2 md:whitespace-pre'>Add To Cart</span>
-                    <span className='dark:text-rose-600'>X</span>
+                    <button onClick={() => addToCartHandler(wishlist)} className='text-white bg-rose-600 hover:bg-rose-800 rounded-lg mx-2 px-2 md:whitespace-pre'>Add To Cart</button>
+                    <button onClick={() => removeWishlishHandler(wishlist)} className='dark:text-rose-600'>X</button>
+                    <Link to={`/product/${_id}`} className='text-white bg-rose-600 hover:bg-rose-800 rounded-lg mx-2 px-2 md:whitespace-pre'>View</Link>
                 </div>
             </div>
-
-        </Link>
+        </div>
 
     )
 }

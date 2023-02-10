@@ -45,9 +45,9 @@ const CartPage = () => {
                     </div>
                     <div className="flex mt-10 mb-5 px-3 py-3">
                         <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5 dark:text-white">Product Details</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Quantity</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Price</h3>
-                        <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Total</h3>
+                        <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Quantity</h3>
+                        <h3 className="font-semibold  text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Price</h3>
+                        {/* <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center dark:text-white">Total</h3> */}
                     </div>
 
 

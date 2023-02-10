@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
@@ -41,16 +42,20 @@ const Navbar = () => {
     }
 
 
-
-
     const expand = (e) => {
         const menu = document.getElementById('menuId');
         menu.classList.toggle('hidden');
         menu.classList.toggle('flex-col');
         menu.classList.toggle('mx-auto')
 
-
     }
+
+    // no of cartItems
+    const { cartsItems } = useSelector((state) => state.carts);
+
+    // no of wishlists Item
+    const { wishlistsItems } = useSelector((state) => state.wishlists);
+
     return (
         <nav className="items-center shadow-lg flex justify-between px-4 py-2 mx-auto bg-slate-100 dark:bg-gray-900">
             <div>
@@ -72,8 +77,8 @@ const Navbar = () => {
             <div id='menuId' className="hidden items-center mx-5 my-1 text-black space-x-8 lg:flex dark:text-white">
                 <Link to={'/'}>Home</Link>
                 <Link to={'/addProduct'}>AddProducts</Link>
-                <Link to={'/carts'}>Cart</Link>
-                <Link to={'/wishlists'}>WishList</Link>
+                <Link to={'/carts'}>Cart ({cartsItems?.length})</Link>
+                <Link to={'/wishlists'}>WishList ({wishlistsItems?.length})</Link>
             </div>
             <div className="flex lg:hidden dark:text-white">
                 <svg
