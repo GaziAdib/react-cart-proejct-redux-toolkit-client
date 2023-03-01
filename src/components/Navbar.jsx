@@ -79,6 +79,7 @@ const Navbar = () => {
                 <Link to={'/addProduct'}>AddProducts</Link>
                 <Link to={'/carts'}>Cart ({cartsItems?.length})</Link>
                 <Link to={'/wishlists'}>WishList ({wishlistsItems?.length})</Link>
+                <Link to={'/product/compare'}>Compare</Link>
             </div>
             <div className="flex lg:hidden dark:text-white">
                 <svg

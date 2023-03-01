@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage';
 import Footer from './components/Footer';
 import ProductDetailPage from './pages/ProductDetailPage';
 import WishlistPage from './pages/WishlistPage';
+import ComparePage from './pages/ComparePage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/carts' element={<CartPage />} />
         <Route path='/wishlists' element={<WishlistPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
+        <Route path='/product/compare' element={<ComparePage />} />
       </Routes>
       <Footer />
     </Router>

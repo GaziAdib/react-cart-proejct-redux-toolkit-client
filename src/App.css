@@ -5,3 +5,58 @@
 .App {
   text-align: center;
 }
+
+@media(min-width: 769px) {
+  .mobileColumnGroup {
+    display: none;
+  }
+}
+
+@media(max-width: 769px) {
+
+  .rowHeader,
+  .emptyCell {
+    display: none;
+  }
+}
+
+.tableContainer {
+  overflow: auto;
+  max-height: 500px;
+}
+
+thead tr {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.rowHeader,
+[scope="colgroup"] span {
+  left: 0;
+  position: sticky;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  min-width: 100px;
+  background: #ffffff;
+}
+
+.featureCheck {
+  color: green;
+}
+
+.featureX {
+  color: red;
+}
