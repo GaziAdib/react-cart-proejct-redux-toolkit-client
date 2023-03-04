@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import ProductDetailPage from './pages/ProductDetailPage';
 import WishlistPage from './pages/WishlistPage';
 import ComparePage from './pages/ComparePage';
+import RawComparePage from './pages/RawComparePage';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path='/carts' element={<CartPage />} />
         <Route path='/wishlists' element={<WishlistPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
-        <Route path='/product/compare' element={<ComparePage />} />
+        <Route path='/product/compare' element={<RawComparePage />} />
       </Routes>
       <Footer />
     </Router>

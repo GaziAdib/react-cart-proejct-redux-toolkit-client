@@ -48,50 +48,6 @@ const ComparePage = () => {
     console.log(selectedProductInfo1)
 
 
-
-
-
-    // if (selectedProduct1) {
-    //     console.log('selected', selectedProduct1)
-
-    //     // get the selected product data
-
-    //     const fetchData = async () => {
-    //         const res = await axios.get(`http://localhost:5000/api/products/product/${selectedProduct1}`)
-    //         const data = res?.data;
-    //         setSelectedProductInfo1(data)
-    //     }
-
-    //     fetchData();
-
-
-
-    // }
-
-
-
-    // if (selectedProduct2) {
-    //     console.log('selected', selectedProduct2)
-
-    //     const fetchData = async () => {
-    //         const res = await axios.get(`http://localhost:5000/api/products/product/${selectedProduct2}`)
-    //         const data = res?.data;
-    //         setSelectedProductInfo2(data)
-    //     }
-
-    //     fetchData()
-
-    //     console.log('info2', selectedProductInfo2)
-
-    // }
-
-
-    // useEffect(() => {
-    //     fetchData()
-    // },[])
-
-
-
     return (
         <>
 
