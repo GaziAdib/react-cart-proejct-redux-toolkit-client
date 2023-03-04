@@ -22,7 +22,7 @@ function App() {
         <Route path='/carts' element={<CartPage />} />
         <Route path='/wishlists' element={<WishlistPage />} />
         <Route path='/product/:id' element={<ProductDetailPage />} />
-        <Route path='/product/compare' element={<RawComparePage />} />
+        <Route path='/product/compare' element={<ComparePage />} />
       </Routes>
       <Footer />
     </Router>
