@@ -58,6 +58,7 @@ const ComparePage = () => {
                 <div className='bg-green-100 mx-auto py-2 px-2 rounded-sm shadow-sm flex justify-between'>
                     <div class="relative">
                         <select value={selectedProduct1} onChange={(e) => setSelectedProduct1(e.target.value)} class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                            <option>--- Select a Product 1 ---</option>
                             {products?.length > 0 && products?.filter((item) => item?._id !== selectedProduct2).map((product) => {
                                 return <option value={product?._id} key={product?.id}>{product?.title}</option>
                             })}
@@ -76,6 +77,7 @@ const ComparePage = () => {
 
                     <div class="relative">
                         <select value={selectedProduct2} onChange={(e) => setSelectedProduct2(e.target.value)} class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                            <option>--- Select a Product 2 ---</option>
                             {products?.length > 0 && products?.filter((item) => item?._id !== selectedProduct1).map((product) => {
                                 return <option value={product?._id} key={product?.id}>{product?.title}</option>
                             })}
@@ -111,20 +113,20 @@ const ComparePage = () => {
                     <thead class="bg-gray-100">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">Feature</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">{selectedProductInfo1?.title}</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">{selectedProductInfo2?.title}</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">{selectedProductInfo1?.title ? selectedProductInfo1?.title : 'Product 1'}</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider bg-gray-100">{selectedProductInfo2?.title ? selectedProductInfo2?.title : 'Product 2'}</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Price</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${selectedProductInfo1?.price}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${selectedProductInfo2?.price}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${selectedProductInfo1?.price ? selectedProductInfo1?.price : 'price 1'}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${selectedProductInfo2?.price ? selectedProductInfo2?.price : 'price 2'}</td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Category</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{selectedProductInfo1?.category}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{selectedProductInfo2?.category}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{selectedProductInfo1?.category ? selectedProductInfo1?.category : 'category'}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{selectedProductInfo2?.category ? selectedProductInfo2?.category : 'category'}</td>
                         </tr>
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Color Options</td>
